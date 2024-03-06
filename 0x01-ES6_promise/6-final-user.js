@@ -3,13 +3,13 @@ import uploadPhoto from './5-photo-reject';
 
 export default function handleProfileSignup(firstName, lastName, fileName) {
   return Promise.allSettled([signUpUser(firstName, lastName), uploadPhoto(fileName)])
-    .then((results) => results.map((result) => {
-      const res = [];
-      if (result.status === 'fulfilled') {
-        res.push({ status: result.status, value: result.value });
-      } else {
-        res.push({ status: result.status, value: result.reason.toString() });
-      }
+    .then((results) => {
+      const res = results.map((result) => {
+        if (result.status === 'fulfilled') {
+          return { status: result.status, value: result.value };
+        }
+        return { status: result.status, value: result.reason.toString() };
+      });
       return res;
-    }));
+    });
 }
