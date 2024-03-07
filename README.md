@@ -6,4 +6,4 @@
 
 ### 0x01. [ES6 Promises](https://github.com/GideonBature/alx-backend-javascript/tree/main/0x01-ES6_promise)
 
-### 0x02. [ES6 Classes](https://github.com/GideonBature/alx-backend-javascript/tree/main/0x02-ES6_class)
+### 0x02. [ES6 Classes](https://github.com/GideonBature/alx-backend-javascript/tree/main/0x02-ES6_classes)
