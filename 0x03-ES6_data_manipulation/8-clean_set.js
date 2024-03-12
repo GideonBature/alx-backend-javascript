@@ -1,5 +1,7 @@
 export default function cleanSet(set, startString) {
   if (!startString) return '';
+  
+  if (set === undefined) return '';
 
   const result = [];
   for (const str of set) {
