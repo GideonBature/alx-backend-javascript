@@ -57,3 +57,25 @@ const createEmployee: CreateEmployeeInterface = (salary: number | string): Direc
 		return new Director;
 	}
 }
+
+interface IsDirector {
+	(employee: Director | Teacher): employee is Director;
+}
+
+interface ExecuteWork {
+	(employee: Director | Teacher): string;
+}
+
+const isDirector: IsDirector = (employee: Director | Teacher): employee is Director => {
+	return employee instanceof Director;
+}
+
+const executeWork: ExecuteWork = (employee: Director | Teacher): string => {
+	if (employee instanceof Director) {
+
+		return employee.workDirectorTasks();
+	} else {
+
+		return employee.workTeacherTasks();
+	}
+}
