@@ -11,3 +11,5 @@
 ### 0x03. [ES6 Data Manipulation](https://github.com/GideonBature/alx-backend-javascript/tree/main/0x03-ES6_data_manipulation)
 
 ### 0x04. [TypeScript](https://github.com/GideonBature/alx-backend-javascript/tree/main/0x04-TypeScript)
+
+### 0x05. [NodeJS Basics](https://github.com/GideonBature/alx-backend-javascript/tree/main/0x05-Node_JS_basic)
