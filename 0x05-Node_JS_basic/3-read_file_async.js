@@ -1,8 +1,8 @@
-const fs = require('fs/promises');
+const fs = require('fs');
 
-async function countStudents(path) {
+const countStudents = async (path) => {
   try {
-    const csvData = await fs.readFile(path, 'utf8');
+    const csvData = await fs.promises.readFile(path, 'utf8');
     const rows = csvData.split('\n');
     const cols = rows.map((row) => row.split(','));
     const data = cols.slice(1, -1);
@@ -24,6 +24,6 @@ async function countStudents(path) {
   } catch (err) {
     throw new Error('Cannot load the database');
   }
-}
+};
 
 module.exports = countStudents;
