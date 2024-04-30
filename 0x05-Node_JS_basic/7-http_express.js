@@ -11,15 +11,14 @@ app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
 });
 
-app.get('/students', async (req, res) => {
-  res.type('text/plain');
-  res.write('This is the list of our students');
-  try {
-    await countStudents(file);
-    res.end();
-  } catch (err) {
-    res.send(err.message);
-  }
+app.get('/students', (req, res) => {
+  countStudents(file)
+    .then((message) => {
+      res.send(`This is the list of our students\n${message}`);
+    })
+    .catch((err) => {
+      res.send(`This is the list of our students\n${err.message}`);
+    });
 });
 
 app.listen(1245);
