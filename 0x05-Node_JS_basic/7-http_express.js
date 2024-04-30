@@ -7,14 +7,16 @@ const file = process.argv[2];
 const app = express();
 
 app.get('/', (req, res) => {
+  res.type('text/plain');
   res.send('Hello Holberton School!');
 });
 
 app.get('/students', async (req, res) => {
-  res.send('This is the list of our students');
+  res.type('text/plain');
+  res.write('This is the list of our students');
   try {
-    const students = await countStudents(file);
-    res.send(students);
+    await countStudents(file);
+    res.end();
   } catch (err) {
     res.send(err.message);
   }
