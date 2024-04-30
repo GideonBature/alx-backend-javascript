@@ -7,7 +7,6 @@ const file = process.argv[2];
 const app = express();
 
 app.get('/', (req, res) => {
-  res.type('text/plain');
   res.send('Hello Holberton School!');
 });
 
