@@ -13,12 +13,12 @@ const app = http.createServer(async(req, res) => {
     res.write('This is the list of our students\n');
     try {
       const students = await countStudents(file);
-      res.end(`${students}`);
+      res.write(`${students}`);
     } catch (err) {
       return res.end(err.message);
     }
   }
-  res.end();
+  return res.end();
 });
 
 app.listen(1245);
