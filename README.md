@@ -13,3 +13,5 @@
 ### 0x04. [TypeScript](https://github.com/GideonBature/alx-backend-javascript/tree/main/0x04-TypeScript)
 
 ### 0x05. [NodeJS Basics](https://github.com/GideonBature/alx-backend-javascript/tree/main/0x05-Node_JS_basic)
+
+### 0x06. [Unittests in JS](https://github.com/GideonBature/alx-backend-javascript/tree/main/0x06-unittests_in_js)
