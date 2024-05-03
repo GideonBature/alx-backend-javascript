@@ -1,25 +1,18 @@
 const express = require('express');
 const app = express();
 
-// Enable JSON body parsing middleware
 app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('Welcome to the payment system');
 });
 
-// Existing endpoint for /cart/:id with numeric validation
-app.get('/cart/:id', (req, res) => {
-    const { id } = req.params;
-    if (!/^\d+$/.test(id)) {
-        return res.status(400).send('Invalid cart ID, must be a number');
-    }
-    res.send(`Payment methods for cart ${id}`);
+app.get('/cart/:id([0-9]+)', (req, res) => {
+	res.send(`Payment methods for cart ${req.params.id}`);
 });
 
-// New endpoint for /available_payments
 app.get('/available_payments', (req, res) => {
-    res.json({
+    res.send({
         payment_methods: {
             credit_cards: true,
             paypal: false
@@ -27,15 +20,13 @@ app.get('/available_payments', (req, res) => {
     });
 });
 
-// New endpoint for POST /login
-app.post('/login', (req, res) => {
-    const userName = req.body.userName;
-    if (!userName) {
-        return res.status(400).send('Username is required');
-    }
-    res.send(`Welcome ${userName}`);
+app.use(express.json())
+.post('/login', (req, res) => {
+    res.send(`Welcome ${req.body.userName}`);
 });
 
 app.listen(7865, () => {
-    console.log('API is running on port 7865');
+    console.log('API available on localhost port 7865');
 });
+
+module.exports = app;
